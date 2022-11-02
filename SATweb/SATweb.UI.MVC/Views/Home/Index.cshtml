@@ -1,8 +1,26 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    ViewData["InstructionTitle"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="col-12">
+    <div class="card">
+
+        <div class="filter">
+            <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                <li class="dropdown-header text-start">
+                    <h6>Dropdown Menu</h6>
+                </li>
+
+                <li><a class="dropdown-item" href="#">Itdm</a></li>
+                <li><a class="dropdown-item" href="#">Item2</a></li>
+                <li><a class="dropdown-item" href="#">This Year</a></li>
+            </ul>
+        </div>
+
+        <div class="card-body">
+            <h5 class="card-title">Home <span>/Nice</span></h5>
+</div>
+</div>
 </div>
