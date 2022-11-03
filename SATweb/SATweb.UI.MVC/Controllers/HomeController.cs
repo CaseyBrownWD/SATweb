@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SATweb.UI.MVC.Models;
 using System.Diagnostics;
+using Microsoft.Extensions.Configuration;
 
 namespace SATweb.UI.MVC.Controllers
 {
