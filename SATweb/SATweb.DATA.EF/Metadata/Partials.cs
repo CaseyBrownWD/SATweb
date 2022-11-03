@@ -1,39 +1,37 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static SATweb.DATA.EF.Models.Metadata;
 
-namespace SATweb.DATA.EF
-    //Metadata
+namespace SATweb.DATA.EF.Models
 {
-    #region Partials
-    public partial class Course
-    {
-    }
-    public partial class Enrollment
-    {
+    [ModelMetadataType(typeof(CoursesMetadata))]
+    public partial class Courses { }
 
-    }
-    public partial class SATContext
-    {
+    [ModelMetadataType(typeof(ScheduledClassStatusMetadata))]
+    public partial class ScheduledClassStatus { }
 
-    }
-    public partial class ScheduleClassStatus
-    {
+    [ModelMetadataType(typeof(ScheduledClassMetadata))]
+    public partial class ScheduledClasses { }
 
-    }
-    public partial class ScheduledClass
-    {
+    [ModelMetadataType(typeof(EnrollmentMetadata))]
+    public partial class Enrollment { }
 
-    }
+    [ModelMetadataType(typeof(StudentStatusMetadata))]
+    public partial class StudentStatus { }
+
+    [ModelMetadataType(typeof(StudentMetadata))]
     public partial class Student
     {
-
+        //[NotMapped]
+        //public IFormFile? Image { get; set; }
+        public string FullName { get { return $"{FirstName} {LastName}"; } }
     }
-    public partial class StudentStatus
-    {
 
-    }
-    #endregion
 }
+
+

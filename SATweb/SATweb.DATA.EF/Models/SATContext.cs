@@ -24,7 +24,7 @@ namespace SATweb.DATA.EF.Models
         public virtual DbSet<AspNetUserToken> AspNetUserTokens { get; set; } = null!;
         public virtual DbSet<Course> Courses { get; set; } = null!;
         public virtual DbSet<Enrollment> Enrollments { get; set; } = null!;
-        public virtual DbSet<ScheduleClassStatus> ScheduleClassStatuses { get; set; } = null!;
+        public virtual DbSet<ScheduledClassStatus> ScheduledClassStatuses { get; set; } = null!;
         public virtual DbSet<ScheduledClass> ScheduledClasses { get; set; } = null!;
         public virtual DbSet<Student> Students { get; set; } = null!;
         public virtual DbSet<StudentStatus> StudentStatuses { get; set; } = null!;
@@ -151,7 +151,7 @@ namespace SATweb.DATA.EF.Models
                     .HasConstraintName("FK_Enrollments_Students");
             });
 
-            modelBuilder.Entity<ScheduleClassStatus>(entity =>
+            modelBuilder.Entity<ScheduledClassStatus>(entity =>
             {
                 entity.HasKey(e => e.Scsid);
 
@@ -165,7 +165,7 @@ namespace SATweb.DATA.EF.Models
 
             modelBuilder.Entity<ScheduledClass>(entity =>
             {
-                entity.HasKey(e => e.ScheduleClassId);
+                entity.HasKey(e => e.ScheduledClassId);
 
                 entity.Property(e => e.EndDate).HasColumnType("date");
 
@@ -191,7 +191,7 @@ namespace SATweb.DATA.EF.Models
                     .WithMany(p => p.ScheduledClasses)
                     .HasForeignKey(d => d.Scsid)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_ScheduledClasses_ScheduleClassStatuses");
+                    .HasConstraintName("FK_ScheduledClasses_ScheduledClassStatuses");
             });
 
             modelBuilder.Entity<Student>(entity =>
