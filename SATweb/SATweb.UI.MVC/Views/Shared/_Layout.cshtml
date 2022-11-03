@@ -1,4 +1,5 @@
-﻿
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
 
 <!DOCTYPE html>
 <html lang="en">
@@ -52,7 +53,7 @@
         <div class="d-flex align-items-center justify-content-between">
             <a href="index.html" class="logo d-flex align-items-center">
                 <img src="assets/img/logo.png" alt="">
-                <span class="d-none d-lg-block">NiceAdmin</span>
+                <span class="d-none d-lg-block">UA HighSchool</span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
@@ -288,60 +289,78 @@
             <!-- End Home Nav -->
 
             <li class="nav-item">
-                <a class="nav-link " href="@Url.Action("Index", "Courses")">
-                    <i class="bi bi-grid"></i>
-                    <span>Courses</span>
-                </a>
-            </li>
-            <!-- End Courses Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link " href="@Url.Action("Index", "Enrollments")">
-                    <i class="bi bi-grid"></i>
-                    <span>Enrollments</span>
-                </a>
-            </li>
-            <!-- End Enrollments Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link " href="@Url.Action("Index", "ScheduledClasses")">
-                    <i class="bi bi-grid"></i>
-                    <span>Scheduled Classes</span>
-                </a>
-            </li>
-            <!-- End Scheduled Classes Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link " href="@Url.Action("Index", "ScheduledClassStatuses")">
-                    <i class="bi bi-grid"></i>
-                    <span>Scheduled Class Statuses</span>
-                </a>
-            </li>
-            <!-- End Scheduled Class Statuses Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link " href="@Url.Action("Index", "Students")">
-                    <i class="bi bi-grid"></i>
-                    <span>Students</span>
-                </a>
-            </li>
-            <!-- End Students -->
-
-            <li class="nav-item">
-                <a class="nav-link " href="@Url.Action("Index", "StudentStatuses")">
-                    <i class="bi bi-grid"></i>
-                    <span>Student Statuses</span>
-                </a>
-            </li>
-            <!-- End Student Statuses -->
-
-            <li class="nav-item">
                 <a class="nav-link " href="@Url.Action("Contact", "Home")">
                     <i class="bi bi-grid"></i>
                     <span>Contact Us</span>
                 </a>
             </li>
             <!-- End Contact Nav -->
+
+
+            @if (SignInManager.IsSignedIn(User) && (User.IsInRole("Scheduling") || User.IsInRole("Admin")))
+            {
+                <li class="nav-item">
+                    <a class="nav-link " href="@Url.Action("Index", "Students")">
+                        <i class="bi bi-grid"></i>
+                        <span>Students</span>
+                    </a>
+                </li>
+            <!-- End Students -->
+                <li class="nav-item">
+                    <a class="nav-link " href="@Url.Action("Index", "Enrollments")">
+                        <i class="bi bi-grid"></i>
+                        <span>Enrollments</span>
+                    </a>
+                </li>
+            <!-- End Enrollments Nav -->
+
+                 <li class="nav-item">
+                <a class="nav-link " href="@Url.Action("Index", "ScheduledClasses")">
+                    <i class="bi bi-grid"></i>
+                    <span>Scheduled Classes</span>
+                </a>
+                </li>
+            <!-- End Scheduled Classes Nav -->
+
+
+            }
+
+            @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+            { 
+                <li class="nav-item">
+                <a class="nav-link " href="@Url.Action("Index", "Courses")">
+                    <i class="bi bi-grid"></i>
+                    <span>Courses</span>
+                </a>
+                </li>
+            <!-- End Courses Nav -->
+
+                <li class="nav-item">
+                    <a class="nav-link " href="@Url.Action("Index", "ScheduledClassStatuses")">
+                        <i class="bi bi-grid"></i>
+                        <span>Scheduled Class Statuses</span>
+                    </a>
+                </li>
+            <!-- End Scheduled Class Statuses Nav -->
+
+                <li class="nav-item">
+                    <a class="nav-link " href="@Url.Action("Index", "StudentStatuses")">
+                        <i class="bi bi-grid"></i>
+                        <span>Student Statuses</span>
+                    </a>
+                </li>
+            <!-- End Student Statuses -->
+
+            }
+
+
+            
+
+            
+
+            
+
+            
 
          </ul>       
     </aside><!-- End Sidebar-->
@@ -438,6 +457,7 @@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", false)
 </body>
 
 </html>
