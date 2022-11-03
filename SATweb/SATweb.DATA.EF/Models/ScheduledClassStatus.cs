@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace SATweb.DATA.EF.Models
 {
-    public partial class ScheduleClassStatus
+    public partial class ScheduledClassStatus
     {
-        public ScheduleClassStatus()
+        public ScheduledClassStatus()
         {
             ScheduledClasses = new HashSet<ScheduledClass>();
         }

@@ -10,7 +10,7 @@ namespace SATweb.DATA.EF.Models
             Enrollments = new HashSet<Enrollment>();
         }
 
-        public int ScheduleClassId { get; set; }
+        public int ScheduledClassId { get; set; }
         public int CourseId { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
@@ -19,7 +19,7 @@ namespace SATweb.DATA.EF.Models
         public int Scsid { get; set; }
 
         public virtual Course Course { get; set; } = null!;
-        public virtual ScheduleClassStatus Scs { get; set; } = null!;
+        public virtual ScheduledClassStatus Scs { get; set; } = null!;
         public virtual ICollection<Enrollment> Enrollments { get; set; }
     }
 }
