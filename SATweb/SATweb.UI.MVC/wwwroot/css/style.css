@@ -16,12 +16,8 @@ body {
     font-family: "Open Sans", sans-serif;
     /*background: #f6f9ff;*/
     color: #444444;
+    background-image: url('../img/Background3.jpg');
 }
-/*
-body {
-    background-image: url('../img/Background2.jpg');
-    opacity: .5;
-}*/
 
 
 
