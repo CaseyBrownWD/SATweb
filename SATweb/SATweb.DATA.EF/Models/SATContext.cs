@@ -136,7 +136,7 @@ namespace SATweb.DATA.EF.Models
 
             modelBuilder.Entity<Enrollment>(entity =>
             {
-                entity.Property(e => e.EnrollemntDate).HasColumnType("date");
+                entity.Property(e => e.EnrollmentDate).HasColumnType("date");
 
                 entity.HasOne(d => d.ScheduledClass)
                     .WithMany(p => p.Enrollments)
