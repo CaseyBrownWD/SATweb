@@ -61,7 +61,7 @@ namespace SATweb.UI.MVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EnrollmentId,StudentId,ScheduledClassId,EnrollemntDate")] Enrollment enrollment)
+        public async Task<IActionResult> Create([Bind("EnrollmentId,StudentId,ScheduledClassId,EnrollmentDate")] Enrollment enrollment)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +97,7 @@ namespace SATweb.UI.MVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("EnrollmentId,StudentId,ScheduledClassId,EnrollemntDate")] Enrollment enrollment)
+        public async Task<IActionResult> Edit(int id, [Bind("EnrollmentId,StudentId,ScheduledClassId,EnrollmentDate")] Enrollment enrollment)
         {
             if (id != enrollment.EnrollmentId)
             {
